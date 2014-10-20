@@ -41,7 +41,7 @@
 	</script>
 <link href="../thickbox.css" rel="stylesheet" type="text/css" />
 <script src="../js/thickbox.js" type="text/javascript"></script>
-<h2>Daftar Jurusan</h2>
+<h2>Pilih Jurusan</h2>
 <div class="cleaner_h5"></div>
 <fieldset>
 <legend>Daftar Kuota Pendaftaran perJurusan</legend>
@@ -108,7 +108,9 @@ if(isset($_GET['pageno'])){ $pageno_new = "pageno=".$_GET['pageno']; }else{ $pag
 <td id="i_sort"><a href="daftar-jur.php?<?php echo $col3.$pageno_new.$search?>">Hari / Jam</a></td>
 <td id="i_sort"><a href="daftar-jur.php?<?php echo $col4.$pageno_new.$search?>">Ruang</a></td>
 <td id="i_sort"><a href="daftar-jur.php?<?php echo $col5.$pageno_new.$search?>">Kuota</a></td>
-<td>Nilai</td><td>Cetak</td></tr>
+<td id="i_sort"><a href="daftar-jur.php?<?php echo $col5.$pageno_new.$search?>">Pilih</a></td>
+
+</tr>
 </thead>
 <?php
 
@@ -169,13 +171,11 @@ if($n % 2){ $warna="#fff"; } else {$warna="#eee";}
 	<td>'.$r["ruang"].'</td>
 	<td>'.$r["kuota"].'</td>
 	<td align=center>
-	<a href="input-nilai.php?idj='.$r['id_jadwal'].'" class="thickbox" title="Input Nilai Siswa" style="text-decoration:none;"><div id="box-link"><span style="padding:5px; background-color:#C42B97; color:#fff; text-decoration:none;">Proses</span></div></a>';
+	<a href="proses_edit_siswa.php?id_siswa='.$_GET['id_siswa'].'&idj='.$r['id_jadwal'].'" title="Input Nilai Siswa" style="text-decoration:none;"><div id="box-link"><span style="padding:5px; background-color:#C42B97; color:#fff; text-decoration:none;">Pilih</span></div></a>';
 	/*	<a href="cetakabs.php?idj='.$r['id_jadwal'].'"  title="Cetak Absensi - '.$r["nm_mk"].'" target=_blank>
 	<img src=../images/printer.gif></a></td> 
 	*/
 	echo '
-	<td align=center><a href="cetakabs2.php?idj='.$r['id_jadwal'].'"  title="Cetak Absensi Tentor - '.$r["nm_mk"].'" target=_blank>
-	<img src=../images/printer.gif></a></td> 
 	</tr>';
 	$n++;
 }

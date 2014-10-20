@@ -1,6 +1,6 @@
 <?php
-include('koneksi.php');?>
-<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+include('../koneksi.php');?>
+<script src="../js/jquery.validate.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#frm").validate({
@@ -39,4 +39,5 @@ NPM : <input name="idpilih" type="hidden" value="1" /><input name="npm" type="nu
 <div class="cleaner_h5"></div>
 <div id='hasil'></div>
 </div>
+<a href="index.php?page=edit_jurusan_siswa" style="text-decoration:none;"><span class="prev_button">Edit Jurusan Siswa</span></a>	
 	

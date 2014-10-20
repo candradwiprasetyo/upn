@@ -96,6 +96,7 @@ text-decoration:underline;
 		<ul>
 			<!--<li><a href="home.php">Beranda</a></li>-->
 			<li><a href="daftar-siswa.php">Daftar Calon Siswa</a></li>
+            <li><a href="daftar-baru.php?idpilih=1">Pendaftaran Baru</a></li>
 			<li><a href="daftar-user.php">Daftar User / Pengguna</a></li>
 			<li><a href="daftar-jur.php">Daftar Jurusan</a></li>
 			<li><a href="nilai.php">Nilai</a></li>
@@ -150,6 +151,7 @@ text-decoration:underline;
   <div id="footerPan">
   <!--<a href="home.php" class="footer_text">Beranda</a> | -->
   <a href="daftar-siswa.php" class="footer_text">Daftar Calon Siswa</a> | 
+  <a href="daftar-baru.php?idpilih=1">Pendaftaran Baru</a> |
   <a href="daftar-user.php" class="footer_text">Daftar User / Pengguna</a> |
   <a href="daftar-jur.php" class="footer_text">Daftar Jurusan</a> |
   <a href="nilai.php" class="footer_text">Nilai</a> |

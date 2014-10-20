@@ -1,0 +1,11 @@
+[23-Oct-2013 12:40:24 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/surfsof1/public_html/upn/admin/daftar-siswa.php on line 34
+[23-Oct-2013 12:40:36 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/surfsof1/public_html/upn/admin/export-excell.php on line 17
+[23-Oct-2013 12:40:50 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/surfsof1/public_html/upn/admin/daftar-siswa.php on line 34
+[06-Nov-2013 15:29:32 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/surfsof1/public_html/upn/admin/daftar-siswa.php on line 34
+[06-Nov-2013 15:29:34 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/surfsof1/public_html/upn/admin/export-excell.php on line 17
+[08-Jan-2014 12:39:47 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/surfsof1/public_html/upn/admin/daftar-siswa.php on line 34
+[08-Jan-2014 12:39:51 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/surfsof1/public_html/upn/admin/export-excell.php on line 17
+[08-Jan-2014 12:50:29 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/surfsof1/public_html/upn/admin/daftar-siswa.php on line 34
+[08-Jan-2014 12:50:39 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/surfsof1/public_html/upn/admin/export-excell.php on line 17
+[08-Jan-2014 12:50:45 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/surfsof1/public_html/upn/admin/daftar-siswa.php on line 34
+[04-Mar-2014 18:44:22 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/surfsof1/public_html/upn/admin/daftar-siswa.php on line 34

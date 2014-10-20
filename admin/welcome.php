@@ -1,0 +1,1 @@
+<h2>Selamat Datang di Sistem Online Pendaftaran Pelatihan Mahasiswa UPN Veteran Jawa TImur Bekerjasama dengan SPDC Surabaya</h2>

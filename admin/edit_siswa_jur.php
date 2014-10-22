@@ -47,7 +47,7 @@
 <legend>Daftar Kuota Pendaftaran perJurusan</legend>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="right"><form id="form_search" name="form_search" method="post" action="" onsubmit="return search_form('index.php?page=daftar-jur')">
+    <td align="right"><form id="form_search" name="form_search" method="post" action="" onsubmit="return search_form('index.php?page=edit_siswa_jur&id_siswa=<?= $_GET['id_siswa']?>')">
       Mata Kuliah<input type="text" name="i_search" id="i_search" value="<?php if(isset($_GET['search'])){ echo $_GET['search']; }?>" />
     </form></td>
   </tr>
@@ -103,12 +103,12 @@ if(isset($_GET['search'])){
 if(isset($_GET['pageno'])){ $pageno_new = "pageno=".$_GET['pageno']; }else{ $pageno_new = ""; }
 ?>
   <thead class="tr_title">
-<tr ><td >No.</td><td id="i_sort"><a href="daftar-jur.php?<?php echo $col1.$pageno_new.$search?>">Nama Jurusan</a></td>
-<td id="i_sort"><a href="daftar-jur.php?<?php echo $col2.$pageno_new.$search?>">Matakuliah</a></td>
-<td id="i_sort"><a href="daftar-jur.php?<?php echo $col3.$pageno_new.$search?>">Hari / Jam</a></td>
-<td id="i_sort"><a href="daftar-jur.php?<?php echo $col4.$pageno_new.$search?>">Ruang</a></td>
-<td id="i_sort"><a href="daftar-jur.php?<?php echo $col5.$pageno_new.$search?>">Kuota</a></td>
-<td id="i_sort"><a href="daftar-jur.php?<?php echo $col5.$pageno_new.$search?>">Pilih</a></td>
+<tr ><td >No.</td><td id="i_sort"><a href="edit_siswa_jur.php?<?php echo $col1.$pageno_new.$search?>">Nama Jurusan</a></td>
+<td id="i_sort"><a href="edit_siswa_jur.php?<?php echo $col2.$pageno_new.$search?>">Matakuliah</a></td>
+<td id="i_sort"><a href="edit_siswa_jur.php?<?php echo $col3.$pageno_new.$search?>">Hari / Jam</a></td>
+<td id="i_sort"><a href="edit_siswa_jur.php?<?php echo $col4.$pageno_new.$search?>">Ruang</a></td>
+<td id="i_sort"><a href="edit_siswa_jur.php?<?php echo $col5.$pageno_new.$search?>">Kuota</a></td>
+<td id="i_sort"><a href="edit_siswa_jur.php?<?php echo $col5.$pageno_new.$search?>">Pilih</a></td>
 
 </tr>
 </thead>
@@ -136,9 +136,14 @@ else if(isset($_GET['col4']) && $_GET['col4']==2){ $orderby = " order by ruang d
 if(isset($_GET['col5']) && $_GET['col5']==1){ $orderby = " order by kuota asc "; }
 else if(isset($_GET['col5']) && $_GET['col5']==2){ $orderby = " order by kuota desc "; }
 
+$q_jur = mysql_query("select b.id_jur as jurusan from tbl_pendaftaran a
+join tbl_jadwal b on b.id_jadwal = a.id_jadwal
+where id_siswa = '".$_GET['id_siswa']."'");
+$r_jur = mysql_fetch_object($q_jur);
 
 $query = "select count(*) from tbl_jadwal b, tbl_jurusan c, tbl_mk d 
-where b.id_jur=c.id_jur and b.id_mk=d.id_mk $where  $orderby";
+where b.id_jur=c.id_jur and b.id_mk=d.id_mk
+and b.id_jur = '".$r_jur->jurusan."' $where  $orderby";
 $result = mysql_query($query);
 $query_data = mysql_fetch_row($result);
 $numrows = $query_data[0];
@@ -156,7 +161,7 @@ if ($pageno < 1) {
 
 $limit = 'LIMIT ' .($pageno - 1) * $rows_per_page .',' .$rows_per_page;
 $query = "select * from tbl_jadwal b, tbl_jurusan c, tbl_mk d 
-where b.id_jur=c.id_jur and b.id_mk=d.id_mk $where $orderby $limit";
+where b.id_jur=c.id_jur and b.id_mk=d.id_mk and b.id_jur = '".$r_jur->jurusan."' $where $orderby $limit";
 $result = mysql_query($query);
 $n = ($pageno - 1) * $rows_per_page;
 $n = $n+1;
@@ -185,9 +190,9 @@ if($n % 2){ $warna="#fff"; } else {$warna="#eee";}
 if ($pageno == 1) {
    echo "<div class=\"page\"> FIRST PREV </div>";
 } else {
-   echo "<div class=\"page\" id =\"i_next\"> <a href='daftar-jur.php?pageno=1$col$search'>FIRST</a></div> ";
+   echo "<div class=\"page\" id =\"i_next\"> <a href='edit_siswa_jur.php?id_siswa=$_GET[id_siswa]&pageno=1$col$search'>FIRST</a></div> ";
    $prevpage = $pageno-1;
-   echo "<div class=\"page\" id =\"i_next\"> <a href='daftar-jur.php?pageno=$prevpage$col$search'>PREV</a></div> ";
+   echo "<div class=\"page\" id =\"i_next\"> <a href='edit_siswa_jur.php?id_siswa=$_GET[id_siswa]&pageno=$prevpage$col$search'>PREV</a></div> ";
 } // if
 
 echo "<div class=\"page\"> ( Page $pageno of $lastpage )</div> ";
@@ -196,8 +201,8 @@ if ($pageno == $lastpage) {
    echo "<div class=\"page\"> NEXT LAST</div> ";
 } else {
    $nextpage = $pageno+1;
-   echo "<div class=\"page\" id =\"i_next\"> <a href='daftar-jur.php?pageno=$nextpage$col$search'>NEXT</a></div> ";
-   echo "<div class=\"page\" id =\"i_next\"=> <a href='daftar-jur.php?pageno=$lastpage$col$search'>LAST</a></div> ";
+   echo "<div class=\"page\" id =\"i_next\"> <a href='edit_siswa_jur.php?id_siswa=$_GET[id_siswa]&pageno=$nextpage$col$search'>NEXT</a></div> ";
+   echo "<div class=\"page\" id =\"i_next\"=> <a href='edit_siswa_jur.php?id_siswa=$_GET[id_siswa]&pageno=$lastpage$col$search'>LAST</a></div> ";
 } 
 
 ?>
